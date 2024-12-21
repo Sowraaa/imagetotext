@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riwayat Deteksi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            /* Warna hitam */
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        th,
+        td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        .btn-back {
+            display: block;
+            width: 150px;
+            margin: 20px auto;
+            text-align: center;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .btn-back:hover {
+            background-color: #45a049;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #333;
+            /* Warna hitam */
+            color: white;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Riwayat Deteksi Gambar</h1>
+    </header>
+
+    <main>
+        <table>
+            <tr>
+                <th>Nama Gambar</th>
+                <th>Objek Terdeteksi</th>
+            </tr>
+            {% for key, result in results.items() %}
+            <tr>
+                <td>{{ result.image_name }}</td>
+                <td>{{ result.detected_objects | join(", ") }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <a href="/" class="btn-back">Kembali ke Beranda</a>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 From Image to Text. All Rights Reserved.</p>
+    </footer>
+</body>
+
+</html>
